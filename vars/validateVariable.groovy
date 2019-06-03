@@ -36,12 +36,7 @@ def call(String environment) {
     stages {
       stage('Validate templates') {
         steps {
-          sh '''#!/bin/bash
-          set -xe
-
-          echo "In step"
-          echo "secret_name ${secret_name}"
-          '''
+          sh echo "${secret_name}"
         }
       }
     }
