@@ -1,7 +1,7 @@
 def call(String environment) {
   def secret_name = "release-${environment}-kubeconfig"
+  println "SECRETNAME"
   println "${secret_name}"
-  println $secret_name
   pipeline {
     agent {
       any {
