@@ -1,5 +1,5 @@
 def call(String environment) {
-  def secret_name = "release-${environment}-kubeconfig"
+  def secret_name = "sqa-${environment}-kubeconfig"
   println "SECRETNAME"
   println "${secret_name}"
   pipeline {
