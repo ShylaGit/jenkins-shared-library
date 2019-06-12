@@ -1,4 +1,4 @@
-def call(String environment) {
+def call(Map pipelineParams) {
   def secret_name = "sqa-${environment}-kubeconfig"
   println "SECRETNAME"
   println "${secret_name}"
