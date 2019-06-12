@@ -47,22 +47,22 @@ def call(String environment) {
                 slackSend channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'good',
-                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
                 tokenCredentialId: 'slack-demo'
+                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
             }
             failure {
                 slackSend channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'good',
-                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
                 tokenCredentialId: 'slack-demo'
+                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
             }
             unstable {
                 slackSend channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'good',
-                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
                 tokenCredentialId: 'slack-demo'
+                message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and     counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID}     from ${env.CHANGE_AUTHOR}" : ''}"
             }
         }
   }
