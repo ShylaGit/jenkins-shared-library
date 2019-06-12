@@ -1,8 +1,5 @@
 def call(Map pipelineParams) {
 
-  pipeline {
-    agent any
-    post {
             success {
                 slackSend channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
@@ -25,5 +22,3 @@ def call(Map pipelineParams) {
                 tokenCredentialId: 'slack-demo'
             }
     }
-  }
-}
