@@ -1,14 +1,11 @@
 def call(String buildResult) {
     if ( buildResult == "SUCCESS" ) {
-            slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'sqa-alerts', color: 'good', message: 'Mute please', tokenCredentialId: 'slack-demo'
-                echo "Success"
-            }
+            slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+    }
     if ( buildResult == "FAILURE" ) {
-                slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'sqa-alerts', color: 'danger', message: 'Mute please', tokenCredentialId: 'slack-demo'
-                echo "Failure"
-            }
+        slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
+    }
     if ( buildResult == "UNSTABLE" ) {
-                slackSend baseUrl: 'https://hooks.slack.com/services/', channel: 'sqa-alerts', color: 'warning', message: 'Mute please', tokenCredentialId: 'slack-demo'
-                echo "Unstable"
-            }
+        slackSend color: "warning", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable"
+    }
 }
