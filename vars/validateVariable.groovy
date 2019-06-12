@@ -43,7 +43,13 @@ def call(Map pipelineParams = [:]) {
       }
     }
     post {
-            always {
+            success {
+                slackNotification(currentBuild.currentResult)
+            }
+            failure {
+                slackNotification(currentBuild.currentResult)
+            }
+            unstable {
                 slackNotification(currentBuild.currentResult)
             }
         }
