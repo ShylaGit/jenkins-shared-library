@@ -1,4 +1,5 @@
 def call(Map pipelineParams) {
+  pipeline {
     post {
             success {
                 slackSend channel: pipelineParams.get('channel', ''),
@@ -22,4 +23,5 @@ def call(Map pipelineParams) {
                 tokenCredentialId: 'slack-demo'
             }
     }
+  }
 }
