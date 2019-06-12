@@ -1,4 +1,4 @@
-def call(Map pipelineParams) {
+def call(Map pipelineParams, String buildResult) {
     if ( buildResult == "SUCCESS" ) {
         slackSend channel: pipelineParams.get('channel', ''),
                     color: 'good',
