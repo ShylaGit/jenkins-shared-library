@@ -42,6 +42,8 @@ def call(String environment) {
         }
       }
     }
+    post {
+        slackNotification()
     }
   }
 
