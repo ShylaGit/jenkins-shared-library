@@ -1,5 +1,7 @@
 def call(Map pipelineParams) {
+
   pipeline {
+    agent any
     post {
             success {
                 slackSend channel: pipelineParams.get('channel', ''),
