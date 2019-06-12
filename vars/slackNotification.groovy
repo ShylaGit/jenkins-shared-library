@@ -1,11 +1,20 @@
-def call(String buildResult) {
+def call(Map pipelineParams) {
     if ( buildResult == "SUCCESS" ) {
-            slackSend color: "good", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful"
+        slackSend channel: pipelineParams.get('channel', ''),
+                    color: 'good',
+                    message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
+            
     }
     if ( buildResult == "FAILURE" ) {
-        slackSend color: "danger", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed"
+        slackSend channel: pipelineParams.get('channel', ''),
+                    color: 'danger',
+                    message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
+            }
     }
     if ( buildResult == "UNSTABLE" ) {
-        slackSend color: "warning", message: "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was unstable"
+        slackSend channel: pipelineParams.get('channel', ''),
+                    color: 'warning',
+                    message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
+            }
     }
 }
