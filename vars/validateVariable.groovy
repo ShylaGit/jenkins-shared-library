@@ -42,9 +42,5 @@ def call(String environment) {
         }
       }
     }
-    finally {
-        stage {
-        slackNotification()
-    }
   }
 }
