@@ -44,7 +44,8 @@ def call(Map pipelineParams = [:]) {
     }
     post {
             success {
-                slackSend channel: pipelineParams.get('channel', ''),
+                slackSend 
+                channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'good',
                 tokenCredentialId: 'slack-demo',
@@ -52,7 +53,8 @@ def call(Map pipelineParams = [:]) {
                 //message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
             }
             failure {
-                slackSend channel: pipelineParams.get('channel', ''),
+                slackSend 
+                channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'danger',
                 tokenCredentialId: 'slack-demo',
@@ -60,7 +62,8 @@ def call(Map pipelineParams = [:]) {
                 //message: "${env.JOB_NAME} - #${currentBuild.number} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${currentBuild.absoluteUrl}|Open>)${isPR ? "\nGitHub Pull Request Build #${env.CHANGE_ID} from ${env.CHANGE_AUTHOR}" : ''}"
             }
             unstable {
-                slackSend channel: pipelineParams.get('channel', ''),
+                slackSend 
+                channel: pipelineParams.get('channel', ''),
                 baseUrl: 'https://hooks.slack.com/services/',
                 color: 'warning',
                 tokenCredentialId: 'slack-demo',
